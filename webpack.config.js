@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = {
     devtool: 'eval-source-map',
 
@@ -31,16 +33,23 @@ module.exports = {
                 use: [
                     {
                         loader: "style-loader"
-                    }, {
+                    }, 
+                    {
                         loader: "css-loader",
                         options: {
                             modules: {
                                 localIdentName: "[name]__[local]___[hash:base64:5]"
                             }
                         }
+                    },
+                    {
+                        loader: "postcss-loader"
                     }
                 ]
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.BannerPlugin('copyright can not be ruined.')
+    ]
   }

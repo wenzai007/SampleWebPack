@@ -1,12 +1,15 @@
 // Greeter.js
 
 import React, {Component} from 'react'
-var config = require('./config.json');
+
+import config from './config.json';
+import styles from './Greeter.css';//导入
+
 
 class Greeter extends Component{
     render(){
         return (
-            <div>
+            <div className={styles.root}>
                 {config.greetText}
             </div>
         );
